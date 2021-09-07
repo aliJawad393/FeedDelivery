@@ -4,7 +4,9 @@ DerivedData/
 
 *.xcuserstate
 .DS_Store
-
+Podfile.lock
+	Pods/
+	
 ## Various settings
 *.pbxuser
 !default.pbxuser

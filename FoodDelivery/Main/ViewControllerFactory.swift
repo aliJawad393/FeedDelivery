@@ -14,6 +14,6 @@ protocol ViewControllerFactory {
 
 final class iOSUIKitViewControllerFactory: ViewControllerFactory {
     func createItemsListVC() -> UIViewController {
-        return ItemsListViewController()
+        return ItemsListViewController(presenter: FoodItemsListPresenter(interactor: FoodItemsListInteractor(), router: FoodItemsListRouter()))
     }
 }
