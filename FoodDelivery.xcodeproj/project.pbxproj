@@ -9,11 +9,12 @@
 /* Begin PBXBuildFile section */
 		F12CC98226E76DFC00999F9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC98126E76DFC00999F9D /* AppDelegate.swift */; };
 		F12CC98426E76DFC00999F9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC98326E76DFC00999F9D /* SceneDelegate.swift */; };
-		F12CC98626E76DFC00999F9D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC98526E76DFC00999F9D /* ViewController.swift */; };
+		F12CC98626E76DFC00999F9D /* ItemsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC98526E76DFC00999F9D /* ItemsListViewController.swift */; };
 		F12CC98B26E76DFF00999F9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F12CC98A26E76DFF00999F9D /* Assets.xcassets */; };
 		F12CC98E26E76DFF00999F9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F12CC98C26E76DFF00999F9D /* LaunchScreen.storyboard */; };
 		F12CC99926E76E0000999F9D /* FoodDeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC99826E76E0000999F9D /* FoodDeliveryTests.swift */; };
 		F12CC9A426E76E0000999F9D /* FoodDeliveryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9A326E76E0000999F9D /* FoodDeliveryUITests.swift */; };
+		F12CC9C026E77F5500999F9D /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9BF26E77F5500999F9D /* ViewControllerFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,7 +38,7 @@
 		F12CC97E26E76DFC00999F9D /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12CC98126E76DFC00999F9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F12CC98326E76DFC00999F9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F12CC98526E76DFC00999F9D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F12CC98526E76DFC00999F9D /* ItemsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListViewController.swift; sourceTree = "<group>"; };
 		F12CC98A26E76DFF00999F9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F12CC98D26E76DFF00999F9D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F12CC98F26E76DFF00999F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -47,6 +48,7 @@
 		F12CC99F26E76E0000999F9D /* FoodDeliveryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FoodDeliveryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F12CC9A326E76E0000999F9D /* FoodDeliveryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDeliveryUITests.swift; sourceTree = "<group>"; };
 		F12CC9A526E76E0000999F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F12CC9BF26E77F5500999F9D /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +129,7 @@
 		F12CC9B926E77DDC00999F9D /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				F12CC9BF26E77F5500999F9D /* ViewControllerFactory.swift */,
 				F12CC98126E76DFC00999F9D /* AppDelegate.swift */,
 				F12CC98326E76DFC00999F9D /* SceneDelegate.swift */,
 			);
@@ -136,7 +139,7 @@
 		F12CC9BA26E77DF300999F9D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				F12CC98526E76DFC00999F9D /* ViewController.swift */,
+				F12CC98526E76DFC00999F9D /* ItemsListViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -270,7 +273,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F12CC98626E76DFC00999F9D /* ViewController.swift in Sources */,
+				F12CC98626E76DFC00999F9D /* ItemsListViewController.swift in Sources */,
+				F12CC9C026E77F5500999F9D /* ViewControllerFactory.swift in Sources */,
 				F12CC98226E76DFC00999F9D /* AppDelegate.swift in Sources */,
 				F12CC98426E76DFC00999F9D /* SceneDelegate.swift in Sources */,
 			);
