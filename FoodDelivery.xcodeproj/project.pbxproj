@@ -97,9 +97,8 @@
 		F12CC98026E76DFC00999F9D /* FoodDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				F12CC98126E76DFC00999F9D /* AppDelegate.swift */,
-				F12CC98326E76DFC00999F9D /* SceneDelegate.swift */,
-				F12CC98526E76DFC00999F9D /* ViewController.swift */,
+				F12CC9B926E77DDC00999F9D /* Main */,
+				F12CC9BA26E77DF300999F9D /* View */,
 				F12CC98A26E76DFF00999F9D /* Assets.xcassets */,
 				F12CC98C26E76DFF00999F9D /* LaunchScreen.storyboard */,
 				F12CC98F26E76DFF00999F9D /* Info.plist */,
@@ -123,6 +122,23 @@
 				F12CC9A526E76E0000999F9D /* Info.plist */,
 			);
 			path = FoodDeliveryUITests;
+			sourceTree = "<group>";
+		};
+		F12CC9B926E77DDC00999F9D /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC98126E76DFC00999F9D /* AppDelegate.swift */,
+				F12CC98326E76DFC00999F9D /* SceneDelegate.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F12CC9BA26E77DF300999F9D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC98526E76DFC00999F9D /* ViewController.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
