@@ -8,10 +8,21 @@
 import UIKit
 
 class ItemsListViewController: UIViewController {
-
+    private let presenter: ItemsListPresenter
+    
+    //MARK: Init
+    init(presenter: ItemsListPresenter) {
+        self.presenter = presenter
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK: View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .white
     }
 

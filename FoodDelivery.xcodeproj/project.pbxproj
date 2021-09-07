@@ -15,6 +15,9 @@
 		F12CC99926E76E0000999F9D /* FoodDeliveryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC99826E76E0000999F9D /* FoodDeliveryTests.swift */; };
 		F12CC9A426E76E0000999F9D /* FoodDeliveryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9A326E76E0000999F9D /* FoodDeliveryUITests.swift */; };
 		F12CC9C026E77F5500999F9D /* ViewControllerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9BF26E77F5500999F9D /* ViewControllerFactory.swift */; };
+		F12CC9CC26E7E9C400999F9D /* FoodItemsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9CB26E7E9C400999F9D /* FoodItemsListInteractor.swift */; };
+		F12CC9D126E7EA6E00999F9D /* FoodItemsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9D026E7EA6E00999F9D /* FoodItemsListPresenter.swift */; };
+		F12CC9DE26E7EDFE00999F9D /* ItemsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9DD26E7EDFE00999F9D /* ItemsListRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		F12CC9A326E76E0000999F9D /* FoodDeliveryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodDeliveryUITests.swift; sourceTree = "<group>"; };
 		F12CC9A526E76E0000999F9D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F12CC9BF26E77F5500999F9D /* ViewControllerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerFactory.swift; sourceTree = "<group>"; };
+		F12CC9CB26E7E9C400999F9D /* FoodItemsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsListInteractor.swift; sourceTree = "<group>"; };
+		F12CC9D026E7EA6E00999F9D /* FoodItemsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsListPresenter.swift; sourceTree = "<group>"; };
+		F12CC9DD26E7EDFE00999F9D /* ItemsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +107,9 @@
 			children = (
 				F12CC9B926E77DDC00999F9D /* Main */,
 				F12CC9BA26E77DF300999F9D /* View */,
+				F12CC9D526E7EA7600999F9D /* Presenter */,
+				F12CC9CA26E7E99E00999F9D /* Interactor */,
+				F12CC9DC26E7ED9D00999F9D /* Router */,
 				F12CC98A26E76DFF00999F9D /* Assets.xcassets */,
 				F12CC98C26E76DFF00999F9D /* LaunchScreen.storyboard */,
 				F12CC98F26E76DFF00999F9D /* Info.plist */,
@@ -142,6 +151,30 @@
 				F12CC98526E76DFC00999F9D /* ItemsListViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		F12CC9CA26E7E99E00999F9D /* Interactor */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC9CB26E7E9C400999F9D /* FoodItemsListInteractor.swift */,
+			);
+			path = Interactor;
+			sourceTree = "<group>";
+		};
+		F12CC9D526E7EA7600999F9D /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC9D026E7EA6E00999F9D /* FoodItemsListPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		F12CC9DC26E7ED9D00999F9D /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC9DD26E7EDFE00999F9D /* ItemsListRouter.swift */,
+			);
+			path = Router;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -274,6 +307,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F12CC98626E76DFC00999F9D /* ItemsListViewController.swift in Sources */,
+				F12CC9D126E7EA6E00999F9D /* FoodItemsListPresenter.swift in Sources */,
+				F12CC9CC26E7E9C400999F9D /* FoodItemsListInteractor.swift in Sources */,
+				F12CC9DE26E7EDFE00999F9D /* ItemsListRouter.swift in Sources */,
 				F12CC9C026E77F5500999F9D /* ViewControllerFactory.swift in Sources */,
 				F12CC98226E76DFC00999F9D /* AppDelegate.swift in Sources */,
 				F12CC98426E76DFC00999F9D /* SceneDelegate.swift in Sources */,
