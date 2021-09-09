@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -21,6 +21,10 @@
 		F12CC9CC26E7E9C400999F9D /* FoodItemsListInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9CB26E7E9C400999F9D /* FoodItemsListInteractor.swift */; };
 		F12CC9D126E7EA6E00999F9D /* FoodItemsListPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9D026E7EA6E00999F9D /* FoodItemsListPresenter.swift */; };
 		F12CC9DE26E7EDFE00999F9D /* ItemsListRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9DD26E7EDFE00999F9D /* ItemsListRouter.swift */; };
+		F12CC9F626E8943F00999F9D /* FoodItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CC9F526E8943F00999F9D /* FoodItem.swift */; };
+		F12CCA1426E8A06A00999F9D /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12CCA1326E8A06A00999F9D /* NetworkService.swift */; };
+		F13A910B26E8D57600A0E6A4 /* foodItems.json in Resources */ = {isa = PBXBuildFile; fileRef = F13A910A26E8D57600A0E6A4 /* foodItems.json */; };
+		F13A911326E9FE3F00A0E6A4 /* FoodItemsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13A911226E9FE3F00A0E6A4 /* FoodItemsList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +70,10 @@
 		F12CC9CB26E7E9C400999F9D /* FoodItemsListInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsListInteractor.swift; sourceTree = "<group>"; };
 		F12CC9D026E7EA6E00999F9D /* FoodItemsListPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsListPresenter.swift; sourceTree = "<group>"; };
 		F12CC9DD26E7EDFE00999F9D /* ItemsListRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsListRouter.swift; sourceTree = "<group>"; };
+		F12CC9F526E8943F00999F9D /* FoodItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItem.swift; sourceTree = "<group>"; };
+		F12CCA1326E8A06A00999F9D /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		F13A910A26E8D57600A0E6A4 /* foodItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = foodItems.json; sourceTree = "<group>"; };
+		F13A911226E9FE3F00A0E6A4 /* FoodItemsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsList.swift; sourceTree = "<group>"; };
 		F632673DEAF68B66FFF8DB00 /* Pods-FoodDeliveryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDeliveryTests.debug.xcconfig"; path = "Target Support Files/Pods-FoodDeliveryTests/Pods-FoodDeliveryTests.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,7 +125,6 @@
 				F632673DEAF68B66FFF8DB00 /* Pods-FoodDeliveryTests.debug.xcconfig */,
 				356B9AC702C741690FA3BE5F /* Pods-FoodDeliveryTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -146,12 +153,14 @@
 		F12CC98026E76DFC00999F9D /* FoodDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				F13A910926E8D55C00A0E6A4 /* Resources */,
 				F12CC9B926E77DDC00999F9D /* Main */,
 				F12CC9BA26E77DF300999F9D /* View */,
 				F12CC9D526E7EA7600999F9D /* Presenter */,
 				F12CC9CA26E7E99E00999F9D /* Interactor */,
 				F12CC9DC26E7ED9D00999F9D /* Router */,
-				F12CC98A26E76DFF00999F9D /* Assets.xcassets */,
+				F12CC9F426E88FE600999F9D /* Entity */,
+				F12CCA1226E8A05600999F9D /* Network */,
 				F12CC98C26E76DFF00999F9D /* LaunchScreen.storyboard */,
 				F12CC98F26E76DFF00999F9D /* Info.plist */,
 			);
@@ -218,6 +227,32 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
+		F12CC9F426E88FE600999F9D /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC9F526E8943F00999F9D /* FoodItem.swift */,
+				F13A911226E9FE3F00A0E6A4 /* FoodItemsList.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		F12CCA1226E8A05600999F9D /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				F12CCA1326E8A06A00999F9D /* NetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		F13A910926E8D55C00A0E6A4 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F12CC98A26E76DFF00999F9D /* Assets.xcassets */,
+				F13A910A26E8D57600A0E6A4 /* foodItems.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -248,6 +283,7 @@
 				F12CC99026E76E0000999F9D /* Sources */,
 				F12CC99126E76E0000999F9D /* Frameworks */,
 				F12CC99226E76E0000999F9D /* Resources */,
+				B9B090B4FA8664B990C7447A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -326,6 +362,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F13A910B26E8D57600A0E6A4 /* foodItems.json in Resources */,
 				F12CC98E26E76DFF00999F9D /* LaunchScreen.storyboard in Resources */,
 				F12CC98B26E76DFF00999F9D /* Assets.xcassets in Resources */,
 			);
@@ -426,6 +463,23 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodDelivery/Pods-FoodDelivery-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B9B090B4FA8664B990C7447A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryTests/Pods-FoodDeliveryTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryTests/Pods-FoodDeliveryTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodDeliveryTests/Pods-FoodDeliveryTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BA0942E95FAA5E49055229B2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -455,8 +509,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F12CCA1426E8A06A00999F9D /* NetworkService.swift in Sources */,
+				F12CC9F626E8943F00999F9D /* FoodItem.swift in Sources */,
 				F12CC98626E76DFC00999F9D /* ItemsListViewController.swift in Sources */,
 				F12CC9D126E7EA6E00999F9D /* FoodItemsListPresenter.swift in Sources */,
+				F13A911326E9FE3F00A0E6A4 /* FoodItemsList.swift in Sources */,
 				F12CC9CC26E7E9C400999F9D /* FoodItemsListInteractor.swift in Sources */,
 				F12CC9DE26E7EDFE00999F9D /* ItemsListRouter.swift in Sources */,
 				F12CC9C026E77F5500999F9D /* ViewControllerFactory.swift in Sources */,
