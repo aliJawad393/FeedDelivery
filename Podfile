@@ -9,6 +9,7 @@ target 'FoodDelivery' do
   pod 'RxCocoa'
   pod 'Moya/RxSwift', '~> 15.0'
   pod 'ObjectMapper', '~> 4.2.0'
+  pod 'Kingfisher' 
 
   target 'FoodDeliveryTests' do
     inherit! :search_paths
@@ -16,6 +17,7 @@ target 'FoodDelivery' do
   pod 'RxCocoa'
   pod 'Moya/RxSwift', '~> 15.0'
   pod 'ObjectMapper', '~> 4.2.0'
+  pod 'Kingfisher'
   end
 
   target 'FoodDeliveryUITests' do

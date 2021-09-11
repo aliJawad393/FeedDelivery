@@ -6,25 +6,28 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ItemsListViewController: UIViewController {
     private let presenter: ItemsListPresenter
+    private let disposeBag = DisposeBag()
+    private let headerView: UIView
     
     //MARK: UIView Components
     private lazy var tableView: UITableView = {
         let view = UITableView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.register(ItemsListItemTableViewCell.self, forCellReuseIdentifier: "cell")
-        view.delegate = self
-        view.dataSource = self
         view.tableFooterView = UIView()
         view.rowHeight = UITableView.automaticDimension
         return view
     }()
     
     //MARK: Init
-    init(presenter: ItemsListPresenter) {
+    init(presenter: ItemsListPresenter, headerView: UIView) {
         self.presenter = presenter
+        self.headerView = headerView
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -37,6 +40,7 @@ class ItemsListViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setupView()
+        bindWithData()
     }
 }
 
@@ -54,18 +58,42 @@ private extension ItemsListViewController {
     }
 }
 
-extension ItemsListViewController: UITableViewDelegate, UITableViewDataSource {
+extension ItemsListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        headerView
+    }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
+}
+
+//MARK: RxSwift
+private extension ItemsListViewController {
+    private func bindWithData() {
+        tableView.rx
+                .setDelegate(self)
+                .disposed(by: disposeBag)
+        
+        presenter.items.bind(to: tableView.rx.items(cellIdentifier: "cell", cellType: ItemsListItemTableViewCell.self)) {
+            index, element, cell in
+            cell.setData(element)
+        }.disposed(by: disposeBag)
+
+        presenter.error
+            .observe(on: MainScheduler.instance)
+            .subscribe {[weak self] error in
+                self?.alert("Error", message: error.element?.localizedDescription ?? "Something went wrong")
+            }.disposed(by: disposeBag)
+
+    }
 }

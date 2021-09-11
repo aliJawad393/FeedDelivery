@@ -14,6 +14,11 @@ protocol ViewControllerFactory {
 
 final class iOSUIKitViewControllerFactory: ViewControllerFactory {
     func createItemsListVC() -> UIViewController {
-        return ItemsListViewController(presenter: FoodItemsListPresenter(interactor: FoodItemsListInteractor(), router: FoodItemsListRouter()))
+        let presenter = FoodItemsListPresenter(interactor: FoodItemsListInteractor(), router: FoodItemsListRouter())
+        let headerView = SegmentView(items: [Categories.pizza.title, Categories.sushi.title, Categories.drinks.title, Categories.burgers.title, Categories.pastas.title], selection: {selectedItem in
+            presenter.selectItem(atIndex: selectedItem)
+        })
+        
+        return ItemsListViewController(presenter: presenter, headerView: headerView)
     }
 }

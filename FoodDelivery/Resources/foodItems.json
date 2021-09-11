@@ -2,10 +2,21 @@
   "items": [
     {
       "name" : "Pacific Drive",
-      
+      "imageURL": "https://picsum.photos/200/300",
+      "price": 20.0,
+      "weight": 45.5,
+      "size": 10.4,
+      "ingredients": ["ing 1", "ing 2"],
+      "category": "pizza"
     },
     {
       "name" : "Thrill Chaser",
+      "imageURL": "https://picsum.photos/200/300",
+      "price": 20.0,
+      "weight": 45.5,
+      "size": 10.4,
+      "ingredients": ["ing 1", "ing 2"],
+      "category": "pizza"
     }
   ]
 }
