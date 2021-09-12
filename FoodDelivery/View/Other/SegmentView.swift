@@ -21,8 +21,9 @@ final class SegmentView: UIView {
         view.axis = .vertical
         view.distribution = .fill
         view.spacing = 20
+        view.layoutMargins = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        view.isLayoutMarginsRelativeArrangement = true
         view.addArrangedSubview(collectionView)
-        view.addArrangedSubview(UIView())
         return view
     }()
     private lazy var collectionView: UICollectionView = {
@@ -55,10 +56,14 @@ final class SegmentView: UIView {
 
 private extension SegmentView {
     private func setupView() {
+        layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        layer.cornerRadius = 20.0
+        clipsToBounds = true
+        backgroundColor = .systemBackground
         addSubview(stackViewVertical)
         NSLayoutConstraint.activate([
-            stackViewVertical.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            stackViewVertical.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20),
+            stackViewVertical.leadingAnchor.constraint(equalTo: leadingAnchor),
+            stackViewVertical.trailingAnchor.constraint(equalTo: trailingAnchor),
             stackViewVertical.topAnchor.constraint(equalTo: topAnchor),
             stackViewVertical.bottomAnchor.constraint(equalTo: bottomAnchor),
             collectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: UIDevice.current.userInterfaceIdiom == .pad ? 100 : 60)

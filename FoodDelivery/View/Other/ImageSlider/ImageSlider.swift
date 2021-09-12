@@ -12,6 +12,7 @@ final class ImageSlider: UIView {
     
     private var currentIndex: Int = 0
     private var imageNames: [String] = ["image-pizza", "image-pizza-2", "image-pizza", "image-pizza-2", "image-pizza"] // loading locally saved images
+    private let segmentView: SegmentView
     
     //MARK: UIView Components
     private lazy var collectionViewMediaSlider: UICollectionView = {
@@ -40,8 +41,10 @@ final class ImageSlider: UIView {
         return view
     }()
     
+    
     //MARK: Init
-    init() {
+    init(segmentView: SegmentView) {
+        self.segmentView = segmentView
         super.init(frame: .zero)
         setupView()
         setupTimer()
@@ -50,6 +53,12 @@ final class ImageSlider: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    //MARK: Internal
+    func setAlpha(alpha: CGFloat) {
+        collectionViewMediaSlider.alpha = alpha
+        viewPageControl.alpha = alpha
+    }
 }
 
 //MARK: Setup View
@@ -57,13 +66,20 @@ private extension ImageSlider {
     private func setupView() {
         addSubview(collectionViewMediaSlider)
         addSubview(viewPageControl)
+        segmentView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(segmentView)
+        
+        
         NSLayoutConstraint.activate([
             collectionViewMediaSlider.leadingAnchor.constraint(equalTo: leadingAnchor),
             collectionViewMediaSlider.trailingAnchor.constraint(equalTo: trailingAnchor),
             collectionViewMediaSlider.topAnchor.constraint(equalTo: topAnchor),
             collectionViewMediaSlider.bottomAnchor.constraint(equalTo: bottomAnchor),
             viewPageControl.centerXAnchor.constraint(equalTo: collectionViewMediaSlider.centerXAnchor),
-            viewPageControl.bottomAnchor.constraint(equalTo: collectionViewMediaSlider.bottomAnchor, constant: -30)
+            viewPageControl.bottomAnchor.constraint(equalTo: segmentView.topAnchor, constant: -20),
+            segmentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            segmentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            segmentView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
     

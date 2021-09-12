@@ -22,11 +22,13 @@ final class iOSUIKitViewControllerFactory: ViewControllerFactory {
     
     func createItemsListVC() -> UIViewController {
         let presenter = FoodItemsListPresenter(interactor: FoodItemsListInteractor(), router: FoodItemsListRouter(navigationController: navigationController, factory: self))
-        let headerView = SegmentView(items: [Categories.pizza.title, Categories.sushi.title, Categories.drinks.title, Categories.burgers.title, Categories.pastas.title], selection: {selectedItem in
+        let segmentView = SegmentView(items: [Categories.pizza.title, Categories.sushi.title, Categories.drinks.title, Categories.burgers.title, Categories.pastas.title], selection: {selectedItem in
             presenter.selectMenuItem(atIndex: selectedItem)
         })
         
-        return ItemsListViewController(presenter: presenter, headerView: headerView, selectItem: { index in
+        let imageSlider = ImageSlider(segmentView: segmentView)
+        
+        return ItemsListViewController(presenter: presenter, headerView: imageSlider, selectItem: { index in
             presenter.selectFoodItem(atIndex: index)
         })
     }

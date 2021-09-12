@@ -12,7 +12,7 @@ import RxCocoa
 class ItemsListViewController: UIViewController {
     private let presenter: ItemsListPresenter
     private let disposeBag = DisposeBag()
-    private let headerView: UIView
+    private let headerView: ImageSlider?
     private let selectItem: (Int) -> ()
     
     //MARK: UIView Components
@@ -22,12 +22,12 @@ class ItemsListViewController: UIViewController {
         view.register(ItemsListItemTableViewCell.self, forCellReuseIdentifier: "cell")
         view.tableFooterView = UIView()
         view.rowHeight = UITableView.automaticDimension
-        view.tableHeaderView = ImageSlider()
+        view.tableHeaderView = headerView
         return view
     }()
-    
+        
     //MARK: Init
-    init(presenter: ItemsListPresenter, headerView: UIView, selectItem: @escaping(Int) -> ()) {
+    init(presenter: ItemsListPresenter, headerView: ImageSlider?, selectItem: @escaping(Int) -> ()) {
         self.presenter = presenter
         self.headerView = headerView
         self.selectItem = selectItem
@@ -68,23 +68,15 @@ extension ItemsListViewController: UITableViewDelegate, UIScrollViewDelegate {
         UITableView.automaticDimension
     }
     
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headerView
-    }
-    
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return UITableView.automaticDimension
-    }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectItem(indexPath.row)
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if(scrollView.contentOffset.y > 0) {
-            tableView.tableHeaderView?.alpha = 1 - abs(scrollView.contentOffset.y / (tableView.tableHeaderView?.bounds.size.height ?? 1))
+            headerView?.setAlpha(alpha: 1 - abs(scrollView.contentOffset.y / (tableView.tableHeaderView?.bounds.size.height ?? 1)))
         } else {
-            tableView.tableHeaderView?.alpha = 1
+            headerView?.setAlpha(alpha: 1)
         }
     }
 }
