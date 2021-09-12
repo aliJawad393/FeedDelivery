@@ -45,6 +45,16 @@ final class SegmentView: UIView {
         self.items = items
         self.selection = selection
         super.init(frame: .zero)
+        setupView()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
+private extension SegmentView {
+    private func setupView() {
         addSubview(stackViewVertical)
         NSLayoutConstraint.activate([
             stackViewVertical.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
@@ -53,10 +63,6 @@ final class SegmentView: UIView {
             stackViewVertical.bottomAnchor.constraint(equalTo: bottomAnchor),
             collectionView.heightAnchor.constraint(greaterThanOrEqualToConstant: UIDevice.current.userInterfaceIdiom == .pad ? 100 : 60)
         ])
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 

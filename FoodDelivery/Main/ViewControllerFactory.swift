@@ -10,15 +10,28 @@ import UIKit
 
 protocol ViewControllerFactory {
     func createItemsListVC() -> UIViewController
+    func createItemDetailVC() -> UIViewController
 }
 
 final class iOSUIKitViewControllerFactory: ViewControllerFactory {
+    private let navigationController: UINavigationController
+    
+    init(navigationController: UINavigationController) {
+        self.navigationController = navigationController
+    }
+    
     func createItemsListVC() -> UIViewController {
-        let presenter = FoodItemsListPresenter(interactor: FoodItemsListInteractor(), router: FoodItemsListRouter())
+        let presenter = FoodItemsListPresenter(interactor: FoodItemsListInteractor(), router: FoodItemsListRouter(navigationController: navigationController, factory: self))
         let headerView = SegmentView(items: [Categories.pizza.title, Categories.sushi.title, Categories.drinks.title, Categories.burgers.title, Categories.pastas.title], selection: {selectedItem in
-            presenter.selectItem(atIndex: selectedItem)
+            presenter.selectMenuItem(atIndex: selectedItem)
         })
         
-        return ItemsListViewController(presenter: presenter, headerView: headerView)
+        return ItemsListViewController(presenter: presenter, headerView: headerView, selectItem: { index in
+            presenter.selectFoodItem(atIndex: index)
+        })
+    }
+    
+    func createItemDetailVC() -> UIViewController {
+        ItemDetailViewController()
     }
 }

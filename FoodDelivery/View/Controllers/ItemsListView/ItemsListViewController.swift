@@ -13,6 +13,7 @@ class ItemsListViewController: UIViewController {
     private let presenter: ItemsListPresenter
     private let disposeBag = DisposeBag()
     private let headerView: UIView
+    private let selectItem: (Int) -> ()
     
     //MARK: UIView Components
     private lazy var tableView: UITableView = {
@@ -21,13 +22,15 @@ class ItemsListViewController: UIViewController {
         view.register(ItemsListItemTableViewCell.self, forCellReuseIdentifier: "cell")
         view.tableFooterView = UIView()
         view.rowHeight = UITableView.automaticDimension
+        view.tableHeaderView = ImageSlider()
         return view
     }()
     
     //MARK: Init
-    init(presenter: ItemsListPresenter, headerView: UIView) {
+    init(presenter: ItemsListPresenter, headerView: UIView, selectItem: @escaping(Int) -> ()) {
         self.presenter = presenter
         self.headerView = headerView
+        self.selectItem = selectItem
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -39,6 +42,7 @@ class ItemsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        tableView.tableHeaderView?.frame.size = CGSize(width: tableView.bounds.size.width, height: view.bounds.size.height / 2)
         setupView()
         bindWithData()
     }
@@ -58,10 +62,7 @@ private extension ItemsListViewController {
     }
 }
 
-extension ItemsListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        5
-    }
+extension ItemsListViewController: UITableViewDelegate, UIScrollViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UITableView.automaticDimension
@@ -75,6 +76,17 @@ extension ItemsListViewController: UITableViewDelegate {
         return UITableView.automaticDimension
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        selectItem(indexPath.row)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if(scrollView.contentOffset.y > 0) {
+            tableView.tableHeaderView?.alpha = 1 - abs(scrollView.contentOffset.y / (tableView.tableHeaderView?.bounds.size.height ?? 1))
+        } else {
+            tableView.tableHeaderView?.alpha = 1
+        }
+    }
 }
 
 //MARK: RxSwift

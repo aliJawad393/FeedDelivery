@@ -13,8 +13,9 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        let factory = iOSUIKitViewControllerFactory()
-        let navigationController = UINavigationController(rootViewController: factory.createItemsListVC())
+        let navigationController = UINavigationController()
+        let factory = iOSUIKitViewControllerFactory(navigationController: navigationController)
+        navigationController.viewControllers = [factory.createItemsListVC()]
         navigationController.isNavigationBarHidden = true
         window?.windowScene = windowScene
         window?.rootViewController = navigationController

@@ -50,7 +50,8 @@ enum Categories: Int {
 protocol ItemsListPresenter {
     var items: BehaviorRelay<[ListItem]>{ get }
     var error: PublishRelay<Error>{get}
-    func selectItem(atIndex index: Int)
+    func selectMenuItem(atIndex index: Int)
+    func selectFoodItem(atIndex index: Int)
 }
 
 final class FoodItemsListPresenter: ItemsListPresenter {
@@ -79,8 +80,12 @@ final class FoodItemsListPresenter: ItemsListPresenter {
         interactor.getFoodItems()
     }
     
-    func selectItem(atIndex index: Int) {
+    func selectMenuItem(atIndex index: Int) {
         items.accept(mapAndFilter(allItems: allItems, category: Categories(rawValue: index)?.slug ?? ""))
+    }
+    
+    func selectFoodItem(atIndex index: Int) {
+        router.showItemDetail(item: items.value[index])
     }
     
     //MARK: Private Helpers
