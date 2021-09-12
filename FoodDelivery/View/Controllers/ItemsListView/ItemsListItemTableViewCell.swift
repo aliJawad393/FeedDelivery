@@ -68,7 +68,6 @@ final class ItemsListItemTableViewCell: UITableViewCell {
         view.numberOfLines = 0
         view.setContentCompressionResistancePriority(.required, for: .vertical)
         view.textColor = .systemGray
-        view.text = "Chickem, pepperoni, tomato, sauce, spicy chorizo"
         return view
     }()
     
@@ -86,7 +85,6 @@ final class ItemsListItemTableViewCell: UITableViewCell {
         let view = UILabel()
         view.font = UIFont.montserratRegular.withAdjustableSize(13)
         view.textColor = .systemGray
-        view.text = "150 grams, 35 cm"
         return view
     }()
     
@@ -95,7 +93,6 @@ final class ItemsListItemTableViewCell: UITableViewCell {
         view.backgroundColor = UIColor(named: "itemsBgColor")
         view.setTitleColor(.systemBackground, for: .normal)
         view.titleLabel?.font = UIFont.montserratRegular.withAdjustableSize(12)
-        view.setTitle("55 usd", for: .normal)
         view.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         return view
     }()
