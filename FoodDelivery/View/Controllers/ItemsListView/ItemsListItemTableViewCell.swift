@@ -16,15 +16,14 @@ struct ListItem {
     let price: String
     let properties: String
     
-    init?(name: String, imageURL: String, ingredients: [String], price: Float, weight: Float, size: Int) {
-        guard let imageURL = URL(string: imageURL) else {return nil}
-        self.name = name
+    init?(foodItem: FoodItem) {
+        guard let imageURL = URL(string: foodItem.imageUrl ?? "") else {return nil}
+        self.name = foodItem.name ?? ""
         self.imageURL = imageURL
-        self.ingredients = ingredients.joined(separator: " ")
-        self.price = "\(price) usd"
-        self.properties = "\(weight) grams, \(weight) cm"
+        self.ingredients = foodItem.ingredients?.joined(separator: " ") ?? ""
+        self.price = "\(foodItem.price ?? 0) usd"
+        self.properties = "\(foodItem.weight ?? 0) grams, \(foodItem.size ?? 0) cm"
     }
-    
 }
 
 final class ItemsListItemTableViewCell: UITableViewCell {

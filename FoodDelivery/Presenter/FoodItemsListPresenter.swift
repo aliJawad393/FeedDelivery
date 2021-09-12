@@ -92,7 +92,7 @@ final class FoodItemsListPresenter: ItemsListPresenter {
     private func mapAndFilter(allItems: [FoodItem], category: String) -> [ListItem] {
         let filteredItems = allItems.filter{$0.category == category}
         return filteredItems.compactMap { item in
-            ListItem(name: item.name ?? "", imageURL: item.imageUrl ?? "", ingredients: item.ingredients ?? [], price: item.price ?? 0, weight: item.weight ?? 0, size: Int(item.size ?? 0))
+            ListItem(foodItem: item)
         }
     }
 }
