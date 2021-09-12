@@ -1,21 +1,30 @@
 {
   "items": [
     {
-      "name" : "Pacific Drive",
+      "name" : "Deluxe",
       "imageURL": "https://picsum.photos/200/300",
       "price": 20.0,
       "weight": 45.5,
       "size": 10.4,
-      "ingredients": ["ing 1", "ing 2"],
+      "ingredients": ["Chicken", "Tomato Sauce"],
       "category": "pizza"
     },
     {
-      "name" : "Thrill Chaser",
+      "name" : "Hawaiian",
       "imageURL": "https://picsum.photos/200/300",
-      "price": 20.0,
-      "weight": 45.5,
-      "size": 10.4,
-      "ingredients": ["ing 1", "ing 2"],
+      "price": 55.5,
+      "weight": 200,
+      "size": 35,
+      "ingredients": ["Chicken", "Mozerella", "Pineapple"],
+      "category": "pizza"
+    },
+    {
+      "name" : "Pepperoni",
+      "imageURL": "https://picsum.photos/200/300",
+      "price": 55.0,
+      "weight": 190.5,
+      "size": 44.4,
+      "ingredients": ["Mozerella", "Pepperoni", "Tomatoes"],
       "category": "pizza"
     }
   ]
